@@ -1,0 +1,59 @@
+@font-face {
+  font-family: Druk Wide Bold;
+  src: url("Druk Wide Bold.ttf");
+  font-weight: bold;
+}
+
+.table {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    height: 300px;
+    margin-left: -150px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -150px; /* Cette valeur doit être la moitié négative de la valeur du height */
+}
+
+p, h1 {
+	font-family: Druk Wide Bold;
+    background: -webkit-linear-gradient(180deg, #e66465, #9198e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+td {
+	border-style: none;
+}
+
+table {
+	border-style: none;
+}
+
+input {
+	color: black;
+	border-radius: 20px;
+	padding : 3%;
+	font-family: Druk Wide Bold;
+	font-size: 0.5em;
+}
+
+.button {
+	font-family: Druk Wide Bold;
+	color: #e66465;
+	background-color: white;
+	width: 200px;
+	height: 35px;
+	border-radius: 20px;
+	border-width: 1px;
+	border-color: #e66465;
+}
+
+.button:hover {
+	background-color: #DCDCDC;
+}
+
+@media screen and (min-width: 768px) {
+    html {
+      zoom: 2;        
+    }
+}
