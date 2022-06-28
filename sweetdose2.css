@@ -312,7 +312,7 @@ transition:none
 
 @media screen and (max-width: 1280px) and (orientation: portrait){
 	body {
-		grid-template-rows: 0.20fr 0.50fr 0.20fr;
+		grid-template-rows: 0.20fr 1fr 0.20fr;
 		padding: 5%;
 	}
 }
