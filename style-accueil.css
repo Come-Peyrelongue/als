@@ -191,4 +191,10 @@ body a {
     .card4 {
       margin-bottom: 10%;
     }
+  
+    body a {
+      color: black;
+      position: relative;
+      top: 40%;
+    }
 }
