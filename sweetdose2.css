@@ -14,6 +14,7 @@ body {
 	grid-template-rows: 0.20fr 1fr 0.40fr;
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
+	padding: 0% 5% 0% 5%;
 }
 
 .titre {
@@ -312,5 +313,6 @@ transition:none
 @media screen and (max-width: 1280px) and (orientation: portrait){
 	body {
 		grid-template-rows: 0.20fr 0.55fr 0.20fr;
+		padding: 5%;
 	}
 }
