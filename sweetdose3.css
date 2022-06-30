@@ -43,4 +43,8 @@ table img{
 	.subtitle {
 		font-size: 0.75em;
 	}
+	
+	html {
+	        zoom: 2;        
+	}
 }
