@@ -11,6 +11,7 @@
 	</style>
 </head>
 <body>
+	<a href="http://come-peyrelongue.github.io/als/accueil.html" class="bouton"><img width="40" height="40" border="0" src="home.png" alt="Bouton retour à l'accueil" /></a>
 	<div class="titre"><h1>Sweetdose n°3</h1></div>
 	<div class="content">
 		<table id="tapis">
@@ -44,7 +45,7 @@
 			</tr>
 		</table>
 	</div>
-	<div class="subtitle"><h4>HEY ! 👋  Petit jeu de Memory cette fois ci !</h4></div>
+	<div class="subtitle"><h4>HEY ! 👋  Petit jeu de Memory cette fois ci ! Nombre de clics : <span id="display">0</span></h4></div>
 </body>
 <script type="text/javascript">
 	var motifsCartes=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
@@ -77,7 +78,7 @@
 	}
 
 	function rejouer(){
-		alert("Gagné ! Je savais que tu serai forte à ça ❤ Bahahaha je t'aime tellement fort 😍");
+		alert("Gagné ! Je savais que tu serais forte à ça ❤ Bahahaha je t'aime tellement fort 😍");
 		location.reload();
 	}
 
@@ -118,5 +119,14 @@
 			}
 		}
 	}
+
+	var count = 0;
+        var btn = document.getElementById("tapis");
+        var disp = document.getElementById("display");
+  
+        tapis.onclick = function () {
+            count++;
+            disp.innerHTML = count;
+        }
 </script>
 </html>
