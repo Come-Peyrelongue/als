@@ -15,8 +15,15 @@ body {
 	padding: 0% 5% 0% 5%;
 }
 
+.bouton {
+	position: absolute;
+	top: 4%;
+	left: 2rem;
+}
+
 .titre {
 	grid-area: 1 / 1 / 2 / 2;
+
 }
 
 .content {
@@ -43,8 +50,8 @@ table img{
 	.subtitle {
 		font-size: 0.75em;
 	}
-	
+
 	html {
-	        zoom: 2;        
-	}
+      zoom: 2;        
+    }
 }
