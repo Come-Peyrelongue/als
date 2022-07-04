@@ -43,3 +43,28 @@ body {
 	width: 100px;
 	margin-bottom: 2%;
 }
+
+@media screen and (max-width: 1280px) and (orientation: landscape){
+	body {
+		grid-template-rows: 0.20fr 1fr 0.20fr;
+	}
+}
+
+@media screen and (max-width: 1280px) and (orientation: portrait){
+	body {
+		grid-template-rows: 0.20fr 0.50fr 0.20fr;
+		padding: 5%;
+	}
+
+	.content {
+		font-size: 2em;
+	}
+
+	.content img {
+		margin-bottom: 4%;
+	}
+
+	.subtitle {
+		font-size: 1.2em;
+	}
+}
