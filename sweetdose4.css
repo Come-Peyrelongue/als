@@ -33,6 +33,7 @@ body {
 	flex-direction: column;
 	align-content: center;
 	margin-top: 10%;
+	margin-bottom: 5%;
 	background: -webkit-linear-gradient(180deg, #e66465, #9198e5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
