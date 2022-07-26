@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang='fr'>
+<head>
+  <meta charset='UTF-8'>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" type="text/css" href="sweetdose5.css">
+  <title>A toi de jouer baby ;)</title>
+  <style>
+    td{width:170px;height:170px;}
+    .i1{background:url(so.jpg) no-repeat left top; border: solid 2px black;}
+    .i2{background:url(so.jpg) no-repeat center top; border: solid 2px black;}
+    .i3{background:url(so.jpg) no-repeat right top; border: solid 2px black;}
+    .i4{background:url(so.jpg) no-repeat left center; border: solid 2px black;}
+    .i5{background:url(so.jpg) no-repeat center center; border: solid 2px black;}
+    .i6{background:url(so.jpg) no-repeat right center; border: solid 2px black;}
+    .i7{background:url(so.jpg) no-repeat left bottom; border: solid 2px black;}
+    .i8{background:url(so.jpg) no-repeat center bottom; border: solid 2px black;}
+    .i9{background:url(so.jpg) no-repeat right bottom; border: solid 2px black;}
+    button{font-size:30px}
+  </style>
+</head>
+<body>
+  <button onclick="melange();" class="melange"> Mélange </button>
+<script>
+let t=[];
+function debut()
+{
+    for(let n=1;n<=9;n++)
+        t[n]=document.getElementById("t"+n);
+    this.melange()
+}
+function swap(i,j)
+{
+    if(i==j)return;
+    let u=t[i].className;
+    t[i].className=t[j].className;
+    t[j].className=u;
+}
+function isok()
+{
+    for(let n=1;n<=9;n++)
+        if(t[n].id.charAt(1)!=t[n].className.charAt(1))return false;
+    return true;
+}
+function reset()
+{
+    for(let n=1;n<=9;n++)t[n].className="i"+n;
+}
+function bout(i,b=true)
+{
+    let x="";
+    switch(i)
+    {
+        case  1:x="123456";break;
+        case  2:x="123789";break;
+        case  3:x="456789";break;
+        case  4:x="147258";break;
+        case  5:x="147369";break;
+        case  6:x="258369";break;
+        case  7:x="478236";break;//1
+        case  8:x="000000";break;//2
+        case  9:x="214698";break;//3
+        case 10:x="000000";break;//4
+        case 11:x="130970";break;//5
+        case 12:x="000000";break;//6
+        case 13:x="214698";break;//7
+        case 14:x="000000";break;//8
+        case 15:x="478236";break;//9        
+        default:return;
+    }
+    x=x.split('');
+    for(let n=0;n<3;n++)swap(x[n],x[n+3]);
+    if(b && isok())alert("Bravo !");
+}
+function melange()
+{
+    for(let n=0;n<20;n++)bout(1+Math.floor(15*Math.random()),false);
+    if(isok())setTimeout(melange,100);
+}
+setTimeout(debut,500);
+</script>
+<table>
+ <tr>
+  <td id="t1" class="i1" onmousedown="bout(7);"></td>
+  <td id="t2" class="i2" onmousedown="bout(8);"></td>
+  <td id="t3" class="i3" onmousedown="bout(9);"></td>
+  <td><button onclick="bout(1);"><bold>=</bold></button></td>
+ </tr>
+ <tr>
+  <td id="t4" class="i4" onmousedown="bout(10);"></td>
+  <td id="t5" class="i5" onmousedown="bout(11);"></td>
+  <td id="t6" class="i6" onmousedown="bout(12);"></td>
+  <td><button onclick="bout(2);"><bold>=</bold></button></td>
+ </tr>
+ <tr>
+  <td id="t7" class="i7" onmousedown="bout(13);"></td>
+  <td id="t8" class="i8" onmousedown="bout(14);"></td>
+  <td id="t9" class="i9" onmousedown="bout(15);"></td>
+  <td><button onclick="bout(3);"><bold>=</bold></button></td>
+ </tr>
+ <tr>
+  <td style="transform:rotate(90deg);"><button onclick="bout(4);"><bold>=</bold></button></td>
+  <td style="transform:rotate(90deg);"><button onclick="bout(5);"><bold>=</bold></button></td>
+  <td style="transform:rotate(90deg);"><button onclick="bout(6);"><bold>=</bold></button></td>
+ </tr>
+</table>
+<pre>
+Pour pouvoir suivre les explications ci-dessous :
+
+Les boutons = et<font style="writing-mode:vertical-lr;text-orientation:mixed;">=</font>sont numérotés comme ceci :
+             =1
+             =2
+             =3
+<font style="writing-mode:vertical-lr;text-orientation:mixed;">=</font>4 <font style="writing-mode:vertical-lr;text-orientation:mixed;">=</font>5 <font style="writing-mode:vertical-lr;text-orientation:mixed;">=</font>6
+
+Les cases "photo" sont numérotées ici de gauche 
+à droite puis de haut en bas comme ceci :
+   1 2 3
+   4 5 6
+   7 8 9
+
+ Le 1<sup>er</sup> bouton = permute les lignes 1 et 2
+Le 2<sup>ème</sup> bouton = permute les lignes 1 et 3
+Le 3<sup>ème</sup> bouton = permute les lignes 2 et 3
+Le 4<sup>ème</sup> bouton<font style="writing-mode:vertical-lr;text-orientation:mixed;">=</font>permute les colonnes 1 et 2
+Le 5<sup>ème</sup> bouton<font style="writing-mode:vertical-lr;text-orientation:mixed;">=</font>permute les colonnes 1 et 3
+Le 6<sup>ème</sup> bouton<font style="writing-mode:vertical-lr;text-orientation:mixed;">=</font>permute les colonnes 2 et 3
+
+Les cases 1 et 9 permutent selon la diagonale 159, 
+donc les cases 478 permutent avec les cases 236 
+
+Les cases 3 et 7 permutent selon la diagonale 357, 
+donc les cases 213 permutent avec les cases 698 
+
+La case 5, du milieu, permute les 4 angles 1379, 
+donc les cases 13 permutent avec les cases 97
+
+Le bouton reset remet tout en place.
+
+Le bouton mélange, comme son nom l'indique, mélange 
+le jeu qu'il faudra remettre en place par vos 
+propres moyens.
+
+
+On peut simplifier le jeu en ôtant ou modifiant 
+les mélanges par les cases...
+</pre>
+</body>
+</html>

@@ -1,0 +1,35 @@
+@font-face {
+  font-family: druk;
+  src: url("Druk Wide Bold.ttf");
+  font-weight: bold;
+}
+
+html, body {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	font-family: "druk";
+
+}
+
+table {
+	border: black 2px;
+}
+
+.melange {
+	background-color: white;
+	border-style: none;
+	font-family: "druk";
+	margin-bottom: 25px;
+}
+
+pre {
+	font-family: "druk";
+}
+
+@media screen and (max-width: 1200px) and (orientation:portrait){
+	html {
+		zoom: 1.5;
+	}
+}
