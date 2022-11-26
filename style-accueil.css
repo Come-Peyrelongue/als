@@ -13,19 +13,7 @@ body {
 
 .title {
   font-size: 20px;  
-}
-
-body a {
-  color: black;
-  position: relative;
-}
-
-input {
-  color: black;
-  border-radius: 20px;
-  padding : 3%;
-  font-family: Druk Wide Bold;
-  font-size: 1em;
+  margin-top: 5%;
 }
 
 @media screen and (max-width: 1280px) {
@@ -40,27 +28,5 @@ input {
 
     .title {
       margin-bottom: 10%;
-    }
-
-    .card1 {
-      margin-bottom: 10%;
-    }
-
-    .card2 {
-      margin-bottom: 10%;
-    }
-
-    .card3 {
-      margin-bottom: 10%;
-    }
-
-    .card4 {
-      margin-bottom: 10%;
-    }
-
-    body a {
-      color: black;
-      position: relative;
-      top: 40%;
     }
 }
