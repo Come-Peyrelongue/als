@@ -1,11 +1,7 @@
-@font-face {
-  font-family: Druk Wide Bold;
-  src: url("Druk Wide Bold.ttf");
-  font-weight: bold;
-}
+
 
 body {
-  font-family: Druk Wide Bold, sans-serif;
+  font-family: arial;
   text-align: center;
   left: auto;
   right: auto;
