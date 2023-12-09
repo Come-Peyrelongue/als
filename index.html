@@ -17,7 +17,7 @@
 		    box-sizing: border-box;
 		}
 		body{
-		    background-color: #080710;
+		    background-color: #f4f0bb;
 		}
 		.background{
 		    width: 430px;
@@ -34,12 +34,12 @@
 		    border-radius: 50%;
 		}
 		.shape:first-child{
-		    background: linear-gradient(142deg, rgba(8,83,5,1) 0%, rgba(8,136,28,1) 100%);
+		    background: linear-gradient(142deg, #226f54 0%, #87c38f 100%);
 		    left: -80px;
 		    top: -80px;
 		}
 		.shape:last-child{
-		    background: linear-gradient(299deg, rgba(233,64,64,1) 0%, rgba(136,8,8,1) 100%);
+		    background: linear-gradient(299deg, #226f54 0%, #da2c38 100%);
 		    right: -30px;
 		    bottom: -80px;
 		}
@@ -96,7 +96,6 @@
 		    width: 100%;
 		    background-color: #ffffff;
 		    color: #080710;
-		    padding: 15px;
 		    font-size: 18px;
 		    font-weight: 600;
 		    border-radius: 5px;
@@ -135,11 +134,8 @@
     <form name=login>
         <h3>Bienvenu</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" name=username>
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Mot de passe" name="password">
+        <label for="password">Code</label>
+        <input type="password" placeholder="Entrez votre code" name="password">
 
         <input class="button" type=button value="Connexion" onClick="Login()">
     </form>
@@ -147,10 +143,9 @@
 	<script LANGUAGE="JavaScript">
 		function Login(){
 			var done=0;
-			var username=document.login.username.value;
 			var password=document.login.password.value;
 
-			if (username=="Côminoulebest" && password=="14/09/2021") {
+			if password=="0135" {
 				window.location="accueil.html";
 			}
 
