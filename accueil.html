@@ -3,9 +3,433 @@
 	<head>
 		<title>A.L.S</title>
 		<link rel="icon" type="image/png" href="Pngtreeglowing-blue-circle_6483746-ConvertImage.png" />
-		 
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+			body {
+			  margin: 0;
+			  padding: 0;
+			  display: flex;
+			  height: 100vh;
+			  width: 100vw;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  font-family: 'Roboto', sans-serif;
+			  background-color: #FFF;
+			}
+			
+			.step {
+			  display: none;
+			}
+			
+			.app-container {
+			  background-color: white;
+			  max-width: 414px;
+			  margin: auto;
+			  border: 3px solid #D3D3D3;
+			  border-radius: 15px;
+			  padding: 1.5rem;
+			}
+			
+			.wrapper {
+			  text-align: center;
+			}
+			
+			.question-title {
+			  font-weight: bold;
+			}
+			
+			.cat-image {
+			  height: 128px;
+			  max-width: 128px;
+			  overflow: hidden;
+			  border-radius: 50%;
+			  margin: auto;
+			}
+			
+			.cat-image img {
+			  width: 128px;
+			  object-fit: cover;
+			  height: 128px;
+			  object-position: center;
+			  display: block;
+			}
+			
+			.cat-breed {
+			  width: 100%;
+			}
+			
+			.cat-description {
+			  margin: 1rem 0;
+			}
+			
+			.cat-breed {
+			  font-size: 18px;
+			  font-weight: bold;
+			  margin-top: 1rem;
+			}
+			
+			.button {
+			  width: 100%;
+			  text-transform: uppercase;
+			  border-radius: 5px;
+			  font-size: 16px;
+			  font-weight: bold;
+			  cursor: pointer;
+			  padding: 1rem;
+			  -webkit-box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  -moz-box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  border: 2px solid rgba(225,230,229,1);
+			  outline: 0;
+			  margin-top: 0.5rem;
+			}
+			
+			.start-game-btn, .share-result-btn, .success {
+			  background-color: #1FDCA7;
+			  border-color: rgba(17,163,122,1);
+			  -webkit-box-shadow: inset 0px -4px 0px 0px rgba(17,163,122,1);
+			  -moz-box-shadow: inset 0px -4px 0px 0px rgba(17,163,122,1);
+			  box-shadow: inset 0px -4px 0px 0px rgba(17,163,122,1);
+			  color: #FFF;
+			  transition: all ease-in-out 0.2s;
+			}
+			
+			label {
+			  -webkit-box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  -moz-box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  border: 2px solid rgba(225,230,229,1);
+			  height: 40px;
+			  margin-top: 0.5rem;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  cursor: pointer;
+			  border-radius: 5px;
+			}
+			
+			label:hover, label:focus-within, .clicked {
+			  background-color: #e1f3fd;
+			  -webkit-box-shadow: inset 0px -4px 0px 0px rgba(149,209,245,1);
+			  -moz-box-shadow: inset 0px -4px 0px 0px rgba(149,209,245,1);
+			  box-shadow: inset 0px -4px 0px 0px rgba(149,209,245,1);
+			  border-color: rgba(149,209,245,1);
+			}
+			
+			input[type="radio"] {
+			  opacity: 0;
+			  display: none;
+			}
+			
+			form:invalid>#submit-one, form:invalid>#submit-two, form:invalid>#submit-three {
+			  pointer-events: none;
+			  opacity: 0.5;
+			  width: 100%;
+			  text-transform: uppercase;
+			  border-radius: 5px;
+			  font-size: 16px;
+			  font-weight: bold;
+			  cursor: pointer;
+			  padding: 1rem;
+			  -webkit-box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  -moz-box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  box-shadow: inset 0px -4px 0px 0px rgba(225,230,229,1);
+			  border: 2px solid rgba(225,230,229,1);
+			  outline: 0;
+			  margin-top: 0.5rem;
+			  background-color: #fff;
+			  color: #333;
+			  transition: all ease-in-out 0.2s;
+			}
+			
+			.next {
+			  opacity: 0.5;
+			  width: 100%;
+			  text-transform: uppercase;
+			  border-radius: 5px;
+			  font-size: 16px;
+			  font-weight: bold;
+			  cursor: pointer;
+			  padding: 1rem;
+			  background-color: #1FDCA7;
+			  border: 2px solid rgba(17,163,122,1);
+			  -webkit-box-shadow: inset 0px -4px 0px 0px rgba(17,163,122,1);
+			  -moz-box-shadow: inset 0px -4px 0px 0px rgba(17,163,122,1);
+			  box-shadow: inset 0px -4px 0px 0px rgba(17,163,122,1);
+			  color: #FFF;
+			  outline: 0;
+			  margin-top: 0.5rem;
+			  opacity: 1;
+			  transition: all ease-in-out 0.2s;
+			}
+		</style> 
 	</head>
 	<body>
-		
+		<div class="app-container">
+		    <div class="game-start-screen step">
+		      <div class="wrapper">
+		        <img src="http://icons.iconarchive.com/icons/iconka/cat-commerce/128/search-icon.png"/>
+		        <h1>Coucou ma So' !</h1>
+		        <p>J'espère que tu vas bien ce matin 😄 aujourd'hui, j'aimerais te faire passer un petit test pour connaître le chat que nous aurons plus tard !!! Pour cela, trois questions vont apparaître, prends le temps de bien y réfléchir et envoie-moi ton résultat !<br/><br/><em>(et on est bien d'accord que l'on n'aura qu'un seul chat plus tard... ou deux</em> 😉<em>)</em></p>
+		        <button class="start-game-btn button">C'EST PARTI ! </button>
+		      </div>
+		    </div>
+		    <div class="questions step">
+		      <div class="wrapper">
+		        <img src="http://icons.iconarchive.com/icons/iconka/cat-commerce/128/percent-icon.png"/>
+		        <p class="question-title">Je suis une fan de séries, et j'aimerais regarder, plus tard, Julien Doré dans "Panda" sur le canapé avec mon chat. </p>
+		        <form class="options">
+		            <label class="label" data-index-number="0"><input class="option" type="radio" name="question1" value=3 required />Bien sûr !<br></label>
+		            <label class="label" data-index-number="1"><input class="option" type="radio" name="question1" value=2 />Peut-être oui<br></label>
+		            <label class="label" data-index-number="2"><input class="option" type="radio" name="question1" value=1 />Ah non pas Julien Doré 🤢</br></label>
+		            <input class="button next" type="button" value="Next" id="submit-one">
+		        </form>
+		      </div>
+		      
+		    </div>
+		    <div class="questions step">
+		        <div class="wrapper">
+		          <img src="http://icons.iconarchive.com/icons/iconka/cat-commerce/128/error-icon.png"/>
+		          <p class="question-title">J'aime acheter de nouvelles tenues, et <u>je promet que je ferais la litière du chat toutes les semaines si on en adopte un</u> (je ne vois pas non plus où est le rapport mdrrr).</p>
+		          <form class="options">
+		            <label class="label" data-index-number="3"><input class="option" type="radio" name="question2" value=3 required/>Oui, je le promet. 😎<br></label>
+		            <label class="label" data-index-number="4"><input class="option" type="radio" name="question2" value=2>Mmmmmmmhhh, oui mon Côme d'amour 💛<br></label>
+		            <label class="label" data-index-number="5"><input class="option" type="radio" name="question2" value=1>Never. On n'aura donc pas de chat 🙀</br></label>
+		            <input class="button next" type="button" value="Next" id="submit-two">
+		          </form>
+		        </div>
+		        
+		    </div>
+		    <div class="questions step">
+		        <div class="wrapper">
+		          <img src="http://icons.iconarchive.com/icons/iconka/cat-commerce/128/gift-icon.png"/>
+		          <p class="question-title">J'aime faire du sport et je veux que mon chat soit lui aussi un grand sportif, qui aime soulever des altères et puisse sortir se balader quand il veut. 🌳🌲🌷😽</p>
+		          <form class="options">
+		            <label class="label" data-index-number="6"><input class="option" type="radio" name="question3" value=3 required/>Il sera libre de toutes contraintes 🔗<br></label>
+		            <label class="label" data-index-number="7"><input class="option" type="radio" name="question3" value=2>Oui, mais il aura des limites<br></label>
+		            <label class="label" data-index-number="8"><input class="option" type="radio" name="question3" value=1>Jamais de la vie, il restera enfermé. 😿</br></label>
+		            <input class="button next" type="button" value="Next" id="submit-three">
+		          </form>
+		         
+		        </div>
+		    </div>
+		    <div class="result-screen step">
+		      <div class="wrapper">
+		        <h2>Ton chat idéal est...</h2>
+		        <div class="cat-image"></div>
+		        <div class="cat-breed"></div>
+		        <div class="cat-description"></div>
+		      </div>
+		    </div>
+		    <br>
+		    
+		  </div>
 	</body>
+	<script LANGUAGE="JAVASCRIPT">
+		window.onload = function() {
+		  FBInstant.initializeAsync().then(function(){
+		    FBInstant.logEvent('afterInitialized205');
+					FBInstant.startGameAsync().then(function() {
+					  FBInstant.logEvent('afterStartGameAsync');
+					  document.startApp();
+					});
+		  });
+		}
+		
+		const CATS = [
+		  {
+		    breed: "Le bobtail américain",
+		    description: "Les Bobtails américains sont des chats affectueux et incroyablement intelligents. Ils sont extrêmement interactifs et s'attachent à leur famille humaine avec beaucoup de dévouement.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/8r4M61iyS.jpg",
+		      "https://cdn2.thecatapi.com/images/gVrhv_yAY.jpg",
+		      "https://cdn2.thecatapi.com/images/vH0bd0YDH.jpg"
+		    ]
+		  },
+		  {
+		    breed: "L'americain Curl",
+		    description: "Les Curls sont des compagnons fidèles et affectueux qui s'adaptent très rapidement aux autres animaux, aux enfants et aux nouvelles situations.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/xnsqonbjW.jpg",
+		      "https://cdn2.thecatapi.com/images/vJB8rwfdX.jpg",
+		      "https://cdn2.thecatapi.com/images/ji-5E0VwY.jpg"
+		    ]
+		  },
+		  {
+		    breed: "L'américain à poil court",
+		    description: "L'American Shorthair est connu pour sa longévité, sa santé robuste, sa belle apparence, sa personnalité douce et son amabilité.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/MuEGe1-Sz.jpg",
+		      "https://cdn2.thecatapi.com/images/8NdgktL3E.jpg",
+		      "https://cdn2.thecatapi.com/images/JFPROfGtQ.jpg"
+		    ]
+		  },
+		  {
+		    breed: "La brume australienne",
+		    description: "Le Mist australien apprécie la compagnie humaine et constitue un compagnon divertissant pour les personnes de tous âges.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/_6x-3TiCA.jpg",
+		      "https://cdn2.thecatapi.com/images/weHGBmpb0.jpg",
+		      "https://cdn2.thecatapi.com/images/7-1CtKMRr.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Le Balinais",
+		    description: "Les Balinais sont des chats curieux, extravertis et intelligents, connus pour leur personnalité bavarde.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/4ndvXwCiI.jpg",
+		      "https://cdn2.thecatapi.com/images/FJ89mXP4p.jpg",
+		      "https://cdn2.thecatapi.com/images/CvhOrd3S_.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Rex de Cornouailles",
+		    description: "Le Cornish Rex est un chat confiant qui aime les gens et qui restera en mode chaton jusqu'à la fin de sa vie.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/bAiN3T-rs.jpg",
+		      "https://cdn2.thecatapi.com/images/DmP9GCClC.jpg",
+		      "https://cdn2.thecatapi.com/images/unX21IBVB.jpg"
+		    ]
+		  },
+		  {
+		    breed: "L'Himalaya",
+		    description: "Calme et dévoué, l'Himalaya est un excellent compagnon, même s'il préfère un foyer plus calme.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/To-gnSRLr.jpg",
+		      "https://cdn2.thecatapi.com/images/me56sI74P.jpg",
+		      "https://cdn2.thecatapi.com/images/PG-4j7axo.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Le Manx",
+		    description: "Le Manx est un chat placide, doux, enjoué et qui adore être avec les gens.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/gU5wUcOuo.jpg",
+		      "https://cdn2.thecatapi.com/images/Rscv6E1c5.jpg",
+		      "https://cdn2.thecatapi.com/images/AoDtRhYcL.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Norwegian Forest Cat",
+		    description: "The Norwegian Forest Cat is a sweet, loving cat who patrols several times each day to make certain that all is fine.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/JqnhXlI_b.jpg",
+		      "https://cdn2.thecatapi.com/images/wJyw82pIl.jpg",
+		      "https://cdn2.thecatapi.com/images/Sh_ce5dcl.png"
+		    ]
+		  },
+		  {
+		    breed: "Oriental",
+		    description: "Orientals are passionate about the people in their lives, but will entertain themselves with new adventures when you are not available.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/UYp1-LQxI.jpg",
+		      "https://cdn2.thecatapi.com/images/6y4uxeRjW.jpg",
+		      "https://cdn2.thecatapi.com/images/9FEol9vDh.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Ragamuffin",
+		    description: "The Ragamuffin is calm, even tempered and gets along well with all family members. ",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/sWvKIFxBM.jpg",
+		      "https://cdn2.thecatapi.com/images/THXQ9Nqie.jpg",
+		      "https://cdn2.thecatapi.com/images/zIcb1-MhH.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Russian Blue",
+		    description: "Russian Blues are very loving, reserved and they bond very closely with their owner.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/Rhj-JsTLP.jpg",
+		      "https://cdn2.thecatapi.com/images/ErPMMvcv2.jpg",
+		      "https://cdn2.thecatapi.com/images/LXgmee2q_.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Scottish Fold",
+		    description: "The Scottish Fold is a sweet, charming, affectionate breed that is easy to live with and care for.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/q7izjTTa4.jpg",
+		      "https://cdn2.thecatapi.com/images/oIkRTUZnt.jpg",
+		      "https://cdn2.thecatapi.com/images/UrYSVFQZo.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Siamese",
+		    description: "Siamese are social cats that do not like being left alone for long periods of time, and are extremely fond of their people.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/O2aNhFGU-.jpg",
+		      "https://cdn2.thecatapi.com/images/KCJeb66J2.jpg",
+		      "https://cdn2.thecatapi.com/images/O2Xx5d4rV.jpg"
+		    ]
+		  },
+		  {
+		    breed: "Sphynx",
+		    description: "The Sphynx is an intelligent, inquisitive, and people-oriented breed that commonly greets their owners at the front door with obvious excitement and happiness.",
+		    image: [
+		      "https://cdn2.thecatapi.com/images/bSu2exlkB.jpg",
+		      "https://cdn2.thecatapi.com/images/BDb8ZXb1v.jpg",
+		      "https://cdn2.thecatapi.com/images/XwNRjN7JF.jpg"
+		    ]
+		  }
+		]
+		
+		const ALL_SCREENS = document.querySelectorAll('.step');
+		const PLAY_BUTTON = document.querySelector('.start-game-btn');
+		const NEXT_BUTTON = document.querySelectorAll('.next');
+		var CURRENT_SCREEN = 0;
+		
+		const OPTIONS = document.querySelectorAll('.option');
+		const LABELS = document.querySelectorAll('.label');
+		
+		
+		function showCat() {
+		  var randomCat = CATS[Math.floor(Math.random()*CATS.length)];
+		  var catImage = document.querySelector('.cat-image');
+		  var catName = document.querySelector('.cat-breed');
+		  var catBehavior = document.querySelector('.cat-description');
+		  var html = '<img src="' + randomCat.image[Math.floor(Math.random()*randomCat.image.length)] + '">';
+		
+		  catImage.innerHTML = html;
+		  catName.innerHTML = randomCat.breed;
+		  catBehavior.innerHTML = randomCat.description;
+		
+		}
+		
+		showCat()
+		
+		function playGame() {
+		  CURRENT_SCREEN = 0;
+		  ALL_SCREENS[CURRENT_SCREEN].style.display = 'block';
+		  
+		  LABELS.forEach(label => {
+		    label.addEventListener('click', () => {
+		      LABELS.forEach(label => {
+		        label.classList.remove('clicked')
+		      })
+		      label.classList.add('clicked')
+		    })
+		  })
+		
+		  PLAY_BUTTON.addEventListener('click', () => {
+		    CURRENT_SCREEN = 1;
+		    ALL_SCREENS[CURRENT_SCREEN].style.display = "block";
+		    ALL_SCREENS[0].style.display = "none"; 
+		    NEXT_BUTTON.forEach(next_btn => {
+		      
+		      next_btn.addEventListener('click', () => {
+		        CURRENT_SCREEN = CURRENT_SCREEN + 1;
+		        ALL_SCREENS[CURRENT_SCREEN - 1].style.display = 'none';
+		        ALL_SCREENS[CURRENT_SCREEN].style.display = 'block';
+		        console.log(CURRENT_SCREEN)
+		      })
+		    })
+		  })
+		}
+		
+		playGame()
+	</script>
 </html>
